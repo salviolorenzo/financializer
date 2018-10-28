@@ -80,7 +80,12 @@ nav a{
     padding-bottom: 20px;
 }
 
-.big3box p{
+.big3box ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+.big3box li{
     font-size: 12px;
 }
 
