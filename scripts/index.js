@@ -5,13 +5,21 @@
 const dow = document.querySelector('[data-dow]');
 const sp = document.querySelector('[data-sp]');
 const nasdaq = document.querySelector('[data-nasdaq]');
+const vix = document.querySelector('[data-vix]');
 
+
+let fullDate;
 function getDate() {
     let d = new Date();
     let month = d.getMonth() + 1;
     let date = d.getDate();
     let year = d.getFullYear();
-    return `${year}-${month}-${date}`
+    fullDate = {
+        'month': month,
+        'date': date,
+        'year': year
+    };
+    return `${fullDate.year}-${fullDate.month}-${fullDate.date}`;
 }
 
 function getStats(symbol, funtoCall) {
@@ -23,10 +31,14 @@ function getStats(symbol, funtoCall) {
 
 function getData(object) {
     let metaData = object['Meta Data'];
-    let symbol = metaData.symbol;
+    // let symbol = metaData.symbol;
     let prices = object["Time Series (Daily)"];
-    let today = "2018-10-26";
+    let today = getDate();
     if (prices[today] !== undefined) {
+        return prices[today];
+    }
+    else {
+        today.date -= 2;
         return prices[today];
     }
 }
@@ -119,7 +131,38 @@ function drawInic(object) {
     nasdaq.appendChild(list);
     return object;
 }
+function drawVix(object) {
+    let open = parseFloat(object['1. open']);
+    let close = parseFloat(object['4. close']);
+    let high = parseFloat(object['2. high']);
+    let low = parseFloat(object['3. low']);
+    let change = (close - open);
+    list = document.createElement('ul');
+    li1 = document.createElement('li');
+    li2 = document.createElement('li');
+    li3 = document.createElement('li');
+    li4 = document.createElement('li');
+
+    li1.textContent = `Close: ${close}`;
+    li2.textContent = `High: ${high}`;
+    li3.textContent = change.toFixed(2);
+    if (change > 0) {
+        li3.style.color = 'green';
+    }
+    else if (change < 0) {
+        li3.style.color = 'red';
+    }
+    li4.textContent = `Open: ${open}`;
+    list.appendChild(li4);
+    list.appendChild(li1);
+    list.appendChild(li2);
+    list.appendChild(li3);
+
+    vix.appendChild(list);
+    return object;
+}
 
 getStats('DJI', drawDow);
 getStats('INX', drawInx);
 getStats('IXIC', drawInic);
+getStats('VIX', drawVix)
