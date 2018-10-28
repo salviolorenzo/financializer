@@ -5,11 +5,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Quattrocento" rel="stylesheet">
+    <link rel="stylesheet" href="styles/index.css">
+    <title>Financializer</title>
 </head>
 
 <body>
+    <header>
+        <h1>FINANCIALIZER</h1>
+        <a href="#"><i class="fas fa-search"></i></a>
+        <!-- Site name + Logo -->
+        <nav>
+            <a href="#"><li>Home</li></a>
+            <a href="#"><li>News</li></a>
+            <a href="#"><li>About</li></a>
+            <a href="#"><li>Contact</li></a>
+            <!-- Nav bar with various links  -->
+        </nav>
+    </header>
+    <section class="top-section">
+        <!-- Tracks overall market conditions -->
+        <div class="big3">
+            <div class="big3box">
+                <h3>DOW</h3>
+                <p>Overall: 10101010</p>
+                <p>Up or Down</p>
+            </div>
+            <div class="big3box">
+                <h3>S&P 500</h3>
+                <p>Overall: 10101010</p>
+                <p>Up or Down</p>
+            </div>
+            <div class="big3box">
+                <h3>Nasdaq</h3>
+                <p>Overall: 10101010</p>
+                <p>Up or Down</p>
+            </div>
+            <div class="vix">
+                <h3>VIX</h3>
+                <p>Overall: 10101010</p>
+            </div>
+            <!-- displays DOW, S&P ,  Nasdaq -->
+            <!-- DOW market trading volume -->
+            <!-- VIX for Chicago Board of Exchange == Short term volatility -->
+        </div>
+        <div class="most-traded">
+            <h2>Most Traded</h2>
+            <img src="images/aaplstock.jpg" alt="">
+            <img src="images/aaplstock.jpg" alt="">
+            <img src="images/aaplstock.jpg" alt="">
+            <!-- What is being bought and sold the most for that day -->
+            <!-- charts? -->
+        </div>
+        <div class="top-news">
+            <h2>Top News</h2>
+            <img src="images/newsplaceholder.jpg" alt="">
+            <h3>This company is doing this</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt veniam provident laborum dolor?</p>
+            <img src="images/newsplaceholder.jpg" alt="">
+            <h3>This company is doing this</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt veniam provident laborum dolor?</p>
+            <img src="images/newsplaceholder.jpg" alt="">
+            <h3>This company is doing this</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt veniam provident laborum dolor?</p>
+            <!-- top stories on public companies for that day -->
+        </div>
+    </section>
+    <section class="search">
+        <!-- Allow users to search for keywords/companies return stock info and news -->
+        <form action="">
+            <input type="text" name="search" id="">
+            <input type="submit" name="" id="" value="Search">
+        </form>
+        <div class="stock-search">
+            <!-- returns stock info -->
+        </div>
+        <div class="news-search">
+            <!-- news on company -->
+        </div>
+    </section>
 
+    <script src="scripts/config.js"></script>
+    <script src="scripts/index.js"></script>
+    <footer>
+        <!-- Contact info + sources (credit NewsAPI and IEX API) -->
+    </footer>
 </body>
 
 </html>
